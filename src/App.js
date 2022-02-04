@@ -1,11 +1,22 @@
 import "./App.css";
+import { ErrorBoundary } from "react-error-boundary";
+import Error from "./components/Error";
+import AppRouter from "./router/AppRouter";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">myProject</header>
+      <AppRouter />
     </div>
   );
 }
 
-export default App;
+const App1 = () => (
+  <ErrorBoundary FallbackComponent={Error}>
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  </ErrorBoundary>
+);
+export default App1;
