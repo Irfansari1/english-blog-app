@@ -1,12 +1,11 @@
 import React from "react";
 import {
   Navigate,
-  BrowserRouter as Router,
   Route,
   Routes,
 } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import Footer from "../components/Footer";
+import Footer from "../components/footer/Footer";
 import NavBar from "../components/NavBar";
 import Home from "../pages/Home";
 import About from "../pages/About";
@@ -17,31 +16,32 @@ import Speaking from "../pages/Speaking";
 import Grammar from "../pages/Grammar";
 import Contact from "../pages/Contact";
 import Login from "../pages/Login";
-
+import Register from "../pages/Register";
 import Profile from "../pages/Profile";
 import Account from "../pages/Account";
 import Dashboard from "../pages/Dashboard";
 import Logout from "../pages/Logout";
-
 import "../router/AppRouter";
 
 const AppRouter = () => {
+  
   const { isAuth } = useAuth();
   return (
     <React.Fragment>
       <NavBar />
-      <Router>
+      
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/writing" element={<Writing />} />
           <Route path="/reading" element={<Reading />} />
           <Route path="/listening" element={<Listening />} />
           <Route path="/speaking" element={<Speaking />} />
           <Route path="/grammar" element={<Grammar />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           {isAuth ? (
             <React.Fragment>
               <Route path="/profile" element={<Profile />} />
@@ -53,7 +53,6 @@ const AppRouter = () => {
             <Route path="*" element={<Navigate to="/" />} />
           )}
         </Routes>
-      </Router>
       <Footer />
     </React.Fragment>
   );
