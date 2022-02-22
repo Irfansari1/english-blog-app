@@ -2,11 +2,13 @@ import "bootstrap/dist/css/bootstrap.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import App from "./App";
+import App1 from "./App";
+import { BrowserRouter } from "react-router-dom";
+
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <App1 />
+  </BrowserRouter>,
   document.getElementById("root")
 );

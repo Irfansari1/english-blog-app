@@ -3,7 +3,10 @@ import { createContext, useContext, useState } from "react";
 const AuthContext = createContext();
 
 export const AuthProvider = (props) => {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
+
+
+  
   return (
     <AuthContext.Provider
       value={{
