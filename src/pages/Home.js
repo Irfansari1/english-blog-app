@@ -7,7 +7,8 @@ const Home = () => {
   return(
   <div>
     <Slider />
-    <MyCards />
+    <h1>What you need to learn?</h1>
+    <MyCards firstIndex = {0} lastIndex= {5} />
   </div>) ;
 };
 

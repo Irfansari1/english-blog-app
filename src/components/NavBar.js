@@ -19,12 +19,13 @@ import { Link } from "@mui/material";
 const pages = [
   "Home",
   "About",
-  "Contact",
-  "Writing",
+  "Skills",
+  /*"Writing",
   "Reading",
   "Listening",
   "Speaking",
-  "Grammar",
+  "Grammar",*/
+  "Contact",
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 const tools = ["Login", "Register"];

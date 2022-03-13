@@ -5,21 +5,14 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { useNavigate } from "react-router-dom";
 
-export default function MyCard({data}) {
-
-const { title, desc, image } = data;
-
-
+export default function MyCard({ title, desc, image, alt }) {
+  const navigate = useNavigate();
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        height="140"
-        image={image}
-        alt="green iguana"
-      />
-      
+      <CardMedia component="img" height="180" image={image} alt={alt} />
+
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}
@@ -30,9 +23,10 @@ const { title, desc, image } = data;
       </CardContent>
       <CardActions>
         <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+        <Button size="small" onClick={() => navigate(`/${alt}`)}>
+          Learn More
+        </Button>
       </CardActions>
     </Card>
-    
   );
 }

@@ -9,6 +9,7 @@ import Footer from "../components/footer/Footer";
 import NavBar from "../components/NavBar";
 import Home from "../pages/Home";
 import About from "../pages/About";
+import Skills from "../pages/Skills";
 import Writing from "../pages/Writing";
 import Reading from "../pages/Reading";
 import Listening from "../pages/Listening";
@@ -19,7 +20,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Profile from "../pages/Profile";
 import Account from "../pages/Account";
-import Dashboard from "../pages/Dashboard";
+import Detail from "../pages/Detail";
 import Logout from "../pages/Logout";
 import "../router/AppRouter";
 
@@ -29,30 +30,31 @@ const AppRouter = () => {
   return (
     <React.Fragment>
       <NavBar />
-      
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/writing" element={<Writing />} />
-          <Route path="/reading" element={<Reading />} />
-          <Route path="/listening" element={<Listening />} />
-          <Route path="/speaking" element={<Speaking />} />
-          <Route path="/grammar" element={<Grammar />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          {isAuth ? (
-            <React.Fragment>
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/account" element={<Account />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/logout" element={<Logout />} />
-            </React.Fragment>
-          ) : (
-            <Route path="*" element={<Navigate to="/" />} />
-          )}
-        </Routes>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/writing" element={<Writing />} />
+        <Route path="/reading" element={<Reading />} />
+        <Route path="/listening" element={<Listening />} />
+        <Route path="/speaking" element={<Speaking />} />
+        <Route path="/grammar" element={<Grammar />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        {isAuth ? (
+          <React.Fragment>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/logout" element={<Logout />} />
+          </React.Fragment>
+        ) : (
+          <Route path="*" element={<Navigate to="/" />} />
+        )}
+      </Routes>
       <Footer />
     </React.Fragment>
   );

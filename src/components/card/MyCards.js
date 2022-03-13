@@ -5,7 +5,6 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 
-
 import MyCard from "./MyCard";
 import data from "../../data/data";
 
@@ -17,16 +16,20 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function MyCards() {
-  const [cards, setCards] = useState([])
-    
+export default function MyCards({firstIndex, lastIndex}) {
+  const [cards, setCards] = useState(data);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        {cards.map(card => (
-          <Grid item xs={2} sm={4} md={4} key={card.id}>
+      <Grid
+        container
+        spacing={{ xs: 2, md: 3 }}
+        columns={{ xs: 4, sm: 8, md: 12,}}
+      >
+        {cards.slice(firstIndex,lastIndex).map((card) => (
+          <Grid item xs={12} sm={4} md={4} key={card.id}>
             <Item>
-                <MyCard data={data}/>
+              <MyCard image={card.image} desc={card.desc} alt={card.alt} title={card.title} />
             </Item>
           </Grid>
         ))}
@@ -34,4 +37,3 @@ export default function MyCards() {
     </Box>
   );
 }
-
